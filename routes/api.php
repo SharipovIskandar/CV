@@ -13,7 +13,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-
 Route::resource('/students',StudentController::class );
 Route::resource('/experience',ExperienceController::class );
 Route::resource('/projects',ProjectController::class );
