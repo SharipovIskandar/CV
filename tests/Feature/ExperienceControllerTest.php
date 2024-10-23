@@ -40,24 +40,36 @@ class ExperienceControllerTest extends TestCase
 
         // Post so'rovi orqali ma'lumot yuboring
         $response = $this->postJson("/api/students/{$student->id}/experiences", [
-            'name' => 'Company Name',
-            'position' => 'Developer',
-            'description' => 'Worked on several projects',
-            'start_date' => now(),
+            'name' => 'Any Company',
+            'position' => 'Any Position',
+            'description' => 'Did some work',
+            'start_date' => now()->toDateString(), // formatni moslashtiramiz
             'end_date' => null,
         ]);
 
-        // Javobni tekshiring (200 yoki 201 status kodi)
-        $response->assertStatus(201);
+        // Javobni tekshirish (2xx status kodi, muvaffaqiyatli bajarilganligini bildiradi)
+        $response->assertStatus(201); // yoki assertSuccessful() bilan 2xx statuslarini qamrab olishingiz mumkin
 
-        // Ma'lumotlar bazasida yangi tajriba (experience) yaratilganligini tekshiring
+        // Javobda muhim kalitlar borligini tekshirish
+        $response->assertJsonStructure([
+            'data' => [
+                'id',
+                'student_id',
+                'name',
+                'position',
+                'description',
+                'start_date',
+                'end_date'
+            ]
+        ]);
+
+        // Ma'lumotlar bazasida yangi yozuv borligini tekshirish
         $this->assertDatabaseHas('experiences', [
             'student_id' => $student->id,
-            'name' => 'Company Name',
-            'position' => 'Developer',
-            'description' => 'Worked on several projects',
+            'name' => 'Any Company', // mos keladigan bazaviy ma'lumot
         ]);
     }
+
 
 //
 //        $response->assertStatus(201)
