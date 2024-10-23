@@ -142,5 +142,5 @@ class ExperienceControllerTest extends TestCase
 //        $response = $this->deleteJson("/api/students/{$student->id}/experiences/999"); // Mavjud bo'lmagan tajriba ID
 //
 //        $response->assertStatus(404); // 404 - Topilmadi xatosi
-//    }
+    }
 }
