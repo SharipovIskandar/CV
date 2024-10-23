@@ -21,7 +21,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_index_returns_successful_response()
+    public function index_returns_successful_response()
     {
         $student = Student::factory()->create();
         Experience::factory(3)->create(['student_id' => $student->id]); // 3 ta experience yaratish
@@ -33,7 +33,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_store_creates_new_experience()
+    public function store_creates_new_experience()
     {
         $student = Student::factory()->create();
 
@@ -52,7 +52,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_store_fails_with_invalid_data()
+    public function store_fails_with_invalid_data()
     {
         $student = Student::factory()->create();
 
@@ -67,7 +67,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_show_returns_experience()
+    public function show_returns_experience()
     {
         $student = Student::factory()->create();
         $experience = Experience::factory()->create(['student_id' => $student->id]);
@@ -79,7 +79,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_show_fails_for_nonexistent_experience()
+    public function show_fails_for_nonexistent_experience()
     {
         $student = Student::factory()->create();
 
@@ -89,7 +89,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_update_modifies_existing_experience()
+    public function update_modifies_existing_experience()
     {
         $student = Student::factory()->create();
         $experience = Experience::factory()->create(['student_id' => $student->id]);
@@ -109,7 +109,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_update_fails_with_invalid_data()
+    public function update_fails_with_invalid_data()
     {
         $student = Student::factory()->create();
         $experience = Experience::factory()->create(['student_id' => $student->id]);
@@ -123,7 +123,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_destroy_removes_experience()
+    public function destroy_removes_experience()
     {
         $student = Student::factory()->create();
         $experience = Experience::factory()->create(['student_id' => $student->id]);
@@ -135,7 +135,7 @@ class ExperienceControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_destroy_fails_for_nonexistent_experience()
+    public function destroy_fails_for_nonexistent_experience()
     {
         $student = Student::factory()->create();
 

@@ -20,7 +20,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_index_returns_successful_response()
+    public function index_returns_successful_response()
     {
         Project::factory(3)->create(); // 3 ta project yaratish
 
@@ -31,7 +31,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_store_creates_new_project()
+    public function store_creates_new_project()
     {
         $response = $this->postJson('/api/projects', [
             'name' => 'New Project',
@@ -48,7 +48,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_store_fails_with_invalid_data()
+    public function store_fails_with_invalid_data()
     {
         $response = $this->postJson('/api/projects', [
             'name' => '', // Noto'g'ri ma'lumot (bo'sh 'name')
@@ -59,7 +59,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_show_returns_project()
+    public function show_returns_project()
     {
         $project = Project::factory()->create(); // Bir loyiha yaratish
 
@@ -70,7 +70,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_show_fails_for_nonexistent_project()
+    public function show_fails_for_nonexistent_project()
     {
         $response = $this->getJson('/api/projects/9999'); // Mavjud bo'lmagan loyiha ID
 
@@ -78,7 +78,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_update_modifies_existing_project()
+    public function update_modifies_existing_project()
     {
         $project = Project::factory()->create(); // Bir loyiha yaratish
 
@@ -97,7 +97,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_update_fails_with_invalid_data()
+    public function update_fails_with_invalid_data()
     {
         $project = Project::factory()->create(); // Bir loyiha yaratish
 
@@ -110,7 +110,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_destroy_removes_project()
+    public function destroy_removes_project()
     {
         $project = Project::factory()->create(); // Bir loyiha yaratish
 
@@ -121,7 +121,7 @@ class ProjectControllerTest extends TestCase
     }
 
     /** @test */
-    public function test_destroy_fails_for_nonexistent_project()
+    public function destroy_fails_for_nonexistent_project()
     {
         $response = $this->deleteJson('/api/projects/999'); // Mavjud bo'lmagan loyiha ID
 

@@ -19,7 +19,7 @@ class StudentControllerTest extends TestCase
         Sanctum::actingAs($user);
     }
 
-    public function test_index_returns_successful_response()
+    public function index_returns_successful_response()
     {
         Student::factory(3)->create();
 
@@ -29,7 +29,7 @@ class StudentControllerTest extends TestCase
             ->assertJsonCount(3);
     }
 
-    public function test_store_creates_new_student()
+    public function store_creates_new_student()
     {
         $response = $this->postJson('/api/students', [
             'first_name' => 'John',
@@ -47,7 +47,7 @@ class StudentControllerTest extends TestCase
         $this->assertDatabaseHas('students', ['first_name' => 'John']);
     }
 
-    public function test_store_fails_with_invalid_data()
+    public function store_fails_with_invalid_data()
     {
         $response = $this->postJson('/api/students', [
             'first_name' => '',
@@ -58,7 +58,7 @@ class StudentControllerTest extends TestCase
             ->assertJsonValidationErrors('first_name');
     }
 
-    public function test_show_returns_student()
+    public function show_returns_student()
     {
         $student = Student::factory()->create();
 
@@ -68,14 +68,14 @@ class StudentControllerTest extends TestCase
             ->assertJsonFragment(['first_name' => $student->first_name]);
     }
 
-    public function test_show_fails_for_nonexistent_student()
+    public function show_fails_for_nonexistent_student()
     {
         $response = $this->getJson('/api/students/9999');
 
         $response->assertStatus(404);
     }
 
-    public function test_update_modifies_existing_student()
+    public function update_modifies_existing_student()
     {
         $student = Student::factory()->create();
 
@@ -95,7 +95,7 @@ class StudentControllerTest extends TestCase
         $this->assertDatabaseHas('students', ['first_name' => 'Jane']);
     }
 
-    public function test_update_fails_with_invalid_data()
+    public function update_fails_with_invalid_data()
     {
         $student = Student::factory()->create();
 
@@ -107,7 +107,7 @@ class StudentControllerTest extends TestCase
             ->assertJsonValidationErrors('first_name');
     }
 
-    public function test_destroy_removes_student()
+    public function destroy_removes_student()
     {
         $student = Student::factory()->create();
 
@@ -117,7 +117,7 @@ class StudentControllerTest extends TestCase
         $this->assertDatabaseMissing('students', ['id' => $student->id]);
     }
 
-    public function test_destroy_fails_for_nonexistent_student()
+    public function destroy_fails_for_nonexistent_student()
     {
         $response = $this->deleteJson('/api/students/999');
 
