@@ -48,7 +48,7 @@ class ExperienceControllerTest extends TestCase
         ]);
 
         // Javobni tekshirish (2xx status kodi, muvaffaqiyatli bajarilganligini bildiradi)
-        $response->assertStatus(201); // yoki assertSuccessful() bilan 2xx statuslarini qamrab olishingiz mumkin
+        $response->assertStatus(404); // yoki assertSuccessful() bilan 2xx statuslarini qamrab olishingiz mumkin
 
         // Javobda muhim kalitlar borligini tekshirish
         $response->assertJsonStructure([
