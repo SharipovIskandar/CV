@@ -35,8 +35,10 @@ class ExperienceControllerTest extends TestCase
 //    /** @test */
     public function test_store_creates_new_experience()
     {
+        // Foydalanuvchi yoki studentni yarating
         $student = Student::factory()->create();
 
+        // Post so'rovi orqali ma'lumot yuboring
         $response = $this->postJson("/api/students/{$student->id}/experiences", [
             'name' => 'Company Name',
             'position' => 'Developer',
@@ -44,6 +46,19 @@ class ExperienceControllerTest extends TestCase
             'start_date' => now(),
             'end_date' => null,
         ]);
+
+        // Javobni tekshiring (200 yoki 201 status kodi)
+        $response->assertStatus(201);
+
+        // Ma'lumotlar bazasida yangi tajriba (experience) yaratilganligini tekshiring
+        $this->assertDatabaseHas('experiences', [
+            'student_id' => $student->id,
+            'name' => 'Company Name',
+            'position' => 'Developer',
+            'description' => 'Worked on several projects',
+        ]);
+    }
+
 //
 //        $response->assertStatus(201)
 //            ->assertJsonFragment(['name' => 'Company Name']); // Yaratilgan tajribani tekshirish
@@ -142,5 +157,5 @@ class ExperienceControllerTest extends TestCase
 //        $response = $this->deleteJson("/api/students/{$student->id}/experiences/999"); // Mavjud bo'lmagan tajriba ID
 //
 //        $response->assertStatus(404); // 404 - Topilmadi xatosi
-    }
+//    }
 }
