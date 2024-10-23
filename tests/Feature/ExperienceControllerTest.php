@@ -33,17 +33,17 @@ class ExperienceControllerTest extends TestCase
 //    }
 //
 //    /** @test */
-//    public function store_creates_new_experience()
-//    {
-//        $student = Student::factory()->create();
-//
-//        $response = $this->postJson("/api/students/{$student->id}/experiences", [
-//            'name' => 'Company Name',
-//            'position' => 'Developer',
-//            'description' => 'Worked on several projects',
-//            'start_date' => now(),
-//            'end_date' => null,
-//        ]);
+    public function test_store_creates_new_experience()
+    {
+        $student = Student::factory()->create();
+
+        $response = $this->postJson("/api/students/{$student->id}/experiences", [
+            'name' => 'Company Name',
+            'position' => 'Developer',
+            'description' => 'Worked on several projects',
+            'start_date' => now(),
+            'end_date' => null,
+        ]);
 //
 //        $response->assertStatus(201)
 //            ->assertJsonFragment(['name' => 'Company Name']); // Yaratilgan tajribani tekshirish
