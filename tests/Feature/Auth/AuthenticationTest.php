@@ -1,14 +1,14 @@
 <?php
 //
-//namespace Tests\Feature\Auth;
-//
-//use App\Models\User;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
-//use Tests\TestCase;
-//
-//class AuthenticationTest extends TestCase
-//{
-//    use RefreshDatabase;
+namespace Tests\Feature\Auth;
+
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase;
+
+class AuthenticationTest extends TestCase
+{
+    use RefreshDatabase;
 //
 //    public function login_screen_can_be_rendered(): void
 //    {
@@ -51,4 +51,4 @@
 //        $this->assertGuest();
 //        $response->assertRedirect('/');
 //    }
-//}
+}

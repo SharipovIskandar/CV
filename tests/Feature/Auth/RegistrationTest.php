@@ -1,13 +1,13 @@
 <?php
-//
-//namespace Tests\Feature\Auth;
-//
-//use Illuminate\Foundation\Testing\RefreshDatabase;
-//use Tests\TestCase;
-//
-//class RegistrationTest extends TestCase
-//{
-//    use RefreshDatabase;
+
+namespace Tests\Feature\Auth;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase;
+
+class RegistrationTest extends TestCase
+{
+    use RefreshDatabase;
 //
 //    public function registration_screen_can_be_rendered(): void
 //    {
@@ -28,4 +28,4 @@
 //        $this->assertAuthenticated();
 //        $response->assertRedirect(route('dashboard', absolute: false));
 //    }
-//}
+}

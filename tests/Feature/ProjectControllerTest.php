@@ -1,16 +1,16 @@
 <?php
-//
-//namespace Tests\Feature;
-//
-//use App\Models\Project;
-//use App\Models\User;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
-//use Laravel\Sanctum\Sanctum;
-//use Tests\TestCase;
-//
-//class ProjectControllerTest extends TestCase
-//{
-//    use RefreshDatabase;
+
+namespace Tests\Feature;
+
+use App\Models\Project;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase;
+use Laravel\Sanctum\Sanctum;
+
+class ProjectControllerTest extends TestCase
+{
+    use RefreshDatabase;
 //
 //    protected function setUp(): void
 //    {
@@ -127,4 +127,4 @@
 //
 //        $response->assertStatus(404); // 404 - Topilmadi xatosi
 //    }
-//}
+}

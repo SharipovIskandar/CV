@@ -1,14 +1,14 @@
 <?php
-//
-//namespace Tests\Feature\Auth;
-//
-//use App\Models\User;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
-//use Tests\TestCase;
-//
-//class PasswordConfirmationTest extends TestCase
-//{
-//    use RefreshDatabase;
+
+namespace Tests\Feature\Auth;
+
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase;
+
+class PasswordConfirmationTest extends TestCase
+{
+    use RefreshDatabase;
 //
 //    public function confirm_password_screen_can_be_rendered(): void
 //    {
@@ -41,4 +41,4 @@
 //
 //        $response->assertSessionHasErrors();
 //    }
-//}
+}
