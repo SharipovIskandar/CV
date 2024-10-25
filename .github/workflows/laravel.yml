@@ -47,5 +47,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: whoami
-
+          script: |
+            cd CV_Generate
+            git pull
+            docker compose -f docker-compose.production.yml up --build -d
+            docker exec laravel_app php artisan optimize:clear
